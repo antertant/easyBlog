@@ -1,18 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import "@fontsource/roboto";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import AddEmployee from "./Components/AddEmployee";
-import Table from "./Components/Table";
+import Home from "./Views/Home";
+import AboutPage from "./Views/AboutPage";
+import EducationPage from "./Views/EducationPage";
+import ExperiencePage from "./Views/ExperiencePage";
+import ProjectPage from "./Views/ProjectPage";
+import StickyFooter from "./Components/common/StickyFooter";
 
 ReactDOM.render(
     // <App/>,
       <Router>
           <Routes>
-              <Route path="/" element={<AddEmployee/>} />
-              <Route path="/view" element={<Table/>}/>
+              <Route path="/" element={<App/>}>
+                  <Route index element={<Home/>}/>
+                  <Route path="home" element={<Home/>}/>
+                  <Route path="about" element={<AboutPage/>}/>
+                  <Route path="education" element={<EducationPage/>}/>
+                  <Route path="experience" element={<ExperiencePage/>}/>
+                  <Route path="project" element={<ProjectPage/>}/>
+              </Route>
           </Routes>
       </Router>,
   document.getElementById('root')
