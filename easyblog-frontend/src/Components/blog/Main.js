@@ -1,12 +1,28 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Markdown from './Markdown';
+import {useState} from "react";
+
+import MainPost from "./MainPost";
 
 function Main(props) {
     const { posts, title } = props;
+
+    const [abstracts, setAbstracts] = useState([]);
+    const [firstLoad, setLoad] = useState(true);
+
+    async function fetchAbstracts() {
+        let response = await fetch("/api/blogPost/getAllAbstracts");
+        let list = await response.json();
+        setAbstracts(list);
+    }
+
+    if (firstLoad) {
+        fetchAbstracts();
+        setLoad(false);
+    }
 
     return (
         <Grid
@@ -19,14 +35,13 @@ function Main(props) {
                 },
             }}
         >
-            <Typography variant="h6" gutterBottom>
-                {title}
-            </Typography>
-            <Divider />
-            {posts.map((post) => (
-                <Markdown className="markdown" key={post.substring(0, 40)}>
-                    {post}
-                </Markdown>
+
+            {abstracts.map((abstract) => (
+                <MainPost title={abstract.articleTitle}
+                          abstract={abstract.articleAbstract}
+                          articleId={abstract.id}
+                          date={abstract.articlePostTime}
+                />
             ))}
         </Grid>
     );

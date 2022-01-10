@@ -3,11 +3,9 @@ import './App.css';
 import {Outlet} from "react-router-dom";
 import React from "react";
 import StickyFooter from "./Components/common/StickyFooter";
-import {createTheme, CssBaseline, ThemeProvider} from "@mui/material";
-import {ThemeOptions} from "@mui/material/styles";
-import Home from "./Views/Home";
-import Footer from "./Components/common/Footer";
+import {Container, createTheme, CssBaseline, ThemeProvider} from "@mui/material";
 import Header from "./Components/common/Header";
+import Box from "@mui/material/Box";
 
 export default function App() {
 
@@ -34,10 +32,14 @@ export default function App() {
 
     return (
         <ThemeProvider theme={theme}>
-            <CssBaseline/>
-            <Header/>
-            <Outlet/>
-            <StickyFooter title={"EasyBlog"} />
+            <Box sx={{minHeight: '100vh'}}>
+                <CssBaseline/>
+                <Header/>
+                <Container maxWidth={"xl"}>
+                    <Outlet/>
+                </Container>
+                <StickyFooter title={"EasyBlog"}/>
+            </Box>
         </ThemeProvider>
         // <Router>
         //     <Routes>

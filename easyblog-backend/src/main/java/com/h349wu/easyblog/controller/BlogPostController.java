@@ -24,6 +24,11 @@ public class BlogPostController {
     @GetMapping("/getAllAbstracts")
     public List<BlogPost> getAbstracts() { return blogPostService.getAbstracts(); }
 
+    @GetMapping("/getAbstractsByPage/{page}")
+    public List<BlogPost> getAbstractByPage(@PathVariable int page) {
+        return blogPostService.getAbstractByPage(page - 1); // 0-indexed data
+    }
+
     @PostMapping("/updatePost")
     public BlogPost update(@RequestBody BlogPost post) {
         blogPostService.update(post);

@@ -29,13 +29,14 @@ export default function StickyFooter(props) {
                 py: 3,
                 px: 2,
                 mt: 'auto',
+                top: '100vh',
+                position: 'sticky',
                 backgroundColor: (theme) =>
                     theme.palette.mode === 'light'
                         ? theme.palette.grey[200]
                         : theme.palette.grey[800],
             }}
         >
-            <CssBaseline />
             <Container maxWidth="sm">
                 <Typography variant="subtitle1">
                     {title}

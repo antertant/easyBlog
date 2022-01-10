@@ -30,6 +30,12 @@ public class BlogPostServiceImp implements BlogPostService{
 
     @Transactional
     @Override
+    public List<BlogPost> getAbstractByPage(int page) {
+        return blogPostDAO.getAbstractByPage(page);
+    }
+
+    @Transactional
+    @Override
     public void update(BlogPost post) {
         blogPostDAO.update(post);
     }

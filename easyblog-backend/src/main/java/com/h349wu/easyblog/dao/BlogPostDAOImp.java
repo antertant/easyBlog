@@ -34,15 +34,36 @@ public class BlogPostDAOImp implements BlogPostDAO{
     @Override
     public List<BlogPost> getAbstracts() {
         Session currSession = entityManager.unwrap(Session.class);
-        String hql = "SELECT article_title, article_abstract, article_post_time FROM BlogPost";
+        String hql = "SELECT article_id, article_title, article_abstract, article_post_time FROM BlogPost";
         Query query = currSession.createQuery(hql);
         List<Object[]> list = query.list();
         List<BlogPost> res = new ArrayList<>();
         for (Object[] object: list) {
             BlogPost post = new BlogPost();
-            post.setArticleTitle((String)object[0]);
-            post.setArticleAbstract((String)object[1]);
-            post.setArticlePostTime((Date)object[2]);
+            post.setId((Integer)object[0]);
+            post.setArticleTitle((String)object[1]);
+            post.setArticleAbstract((String)object[2]);
+            post.setArticlePostTime((Date)object[3]);
+            res.add(post);
+        }
+        return res;
+    }
+
+    @Override
+    public List<BlogPost> getAbstractByPage(int page) {
+        Session currSession = entityManager.unwrap(Session.class);
+        String hql = "SELECT article_id, article_title, article_abstract, article_post_time FROM BlogPost";
+        Query query = currSession.createQuery(hql);
+        query.setFirstResult(page * 3);
+        query.setMaxResults(3);
+        List<Object[]> list = query.list();
+        List<BlogPost> res = new ArrayList<>();
+        for (Object[] object: list) {
+            BlogPost post = new BlogPost();
+            post.setId((Integer)object[0]);
+            post.setArticleTitle((String)object[1]);
+            post.setArticleAbstract((String)object[2]);
+            post.setArticlePostTime((Date)object[3]);
             res.add(post);
         }
         return res;
@@ -70,7 +91,7 @@ public class BlogPostDAOImp implements BlogPostDAO{
     @Override
     public void delete(String articleTitle) {
         Session currSession = entityManager.unwrap(Session.class);
-        String hql = "FROM BlogPost WHERE articleTitle=" + articleTitle;
+        String hql = "FROM BlogPost WHERE article_title=" + articleTitle;
         Query<BlogPost> post = currSession.createQuery(hql, BlogPost.class);
         currSession.delete(post.getResultList().get(0));
     }
