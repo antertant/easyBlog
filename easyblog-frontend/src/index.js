@@ -10,7 +10,7 @@ import AboutPage from "./Views/AboutPage";
 import EducationPage from "./Views/EducationPage";
 import ExperiencePage from "./Views/ExperiencePage";
 import ProjectPage from "./Views/ProjectPage";
-import StickyFooter from "./Components/common/StickyFooter";
+import Post from "./Components/blog/Post";
 
 ReactDOM.render(
     // <App/>,
@@ -18,6 +18,7 @@ ReactDOM.render(
           <Routes>
               <Route path="/" element={<App/>}>
                   <Route index element={<Home/>}/>
+                  <Route path="post/:id" element={<Post/>}/>
                   <Route path="about" element={<AboutPage/>}/>
                   <Route path="education" element={<EducationPage/>}/>
                   <Route path="experience" element={<ExperiencePage/>}/>

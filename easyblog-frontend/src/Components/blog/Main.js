@@ -1,17 +1,15 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Grid from '@mui/material/Grid';
-import Divider from '@mui/material/Divider';
-import Markdown from './Markdown';
 import {useState} from "react";
 
 import MainPost from "./MainPost";
+import {CircularProgress} from "@mui/material";
 
-function Main(props) {
-    const { posts, title } = props;
+function Main() {
 
     const [abstracts, setAbstracts] = useState([]);
     const [firstLoad, setLoad] = useState(true);
+    let isLoading = true;
 
     async function fetchAbstracts() {
         let response = await fetch("/api/blogPost/getAllAbstracts");
@@ -24,6 +22,8 @@ function Main(props) {
         setLoad(false);
     }
 
+    if (abstracts.length > 0)  isLoading = false;
+
     return (
         <Grid
             item
@@ -35,21 +35,25 @@ function Main(props) {
                 },
             }}
         >
-
-            {abstracts.map((abstract) => (
-                <MainPost title={abstract.articleTitle}
-                          abstract={abstract.articleAbstract}
-                          articleId={abstract.id}
-                          date={abstract.articlePostTime}
+            {isLoading ? (
+                <CircularProgress
+                    sx={{
+                        position: 'absolute',
+                        top: '10%',
+                        left: '30%'
+                    }}
                 />
-            ))}
+            ) : (
+                abstracts.map((abstract) => (
+                        <MainPost title={abstract.articleTitle}
+                                  abstract={abstract.articleAbstract}
+                                  articleId={abstract.id}
+                                  date={abstract.articlePostTime}
+                        />
+                    ))
+            )}
         </Grid>
     );
 }
-
-Main.propTypes = {
-    posts: PropTypes.arrayOf(PropTypes.string).isRequired,
-    title: PropTypes.string.isRequired,
-};
 
 export default Main;

@@ -19,7 +19,7 @@ public class BlogPostDAOImp implements BlogPostDAO{
 
     @Override
     public List<BlogPost> get() {
-        String hql = "FROM BlogPost";
+        String hql = "FROM BlogPost ORDER BY article_post_time DESC";
         Session currSession = entityManager.unwrap(Session.class);
         Query<BlogPost> query = currSession.createQuery(hql, BlogPost.class);
         return query.getResultList();
@@ -34,7 +34,8 @@ public class BlogPostDAOImp implements BlogPostDAO{
     @Override
     public List<BlogPost> getAbstracts() {
         Session currSession = entityManager.unwrap(Session.class);
-        String hql = "SELECT article_id, article_title, article_abstract, article_post_time FROM BlogPost";
+        String hql = "SELECT article_id, article_title, article_abstract, article_post_time FROM BlogPost " +
+                "ORDER BY article_post_time DESC";
         Query query = currSession.createQuery(hql);
         List<Object[]> list = query.list();
         List<BlogPost> res = new ArrayList<>();
@@ -52,7 +53,8 @@ public class BlogPostDAOImp implements BlogPostDAO{
     @Override
     public List<BlogPost> getAbstractByPage(int page) {
         Session currSession = entityManager.unwrap(Session.class);
-        String hql = "SELECT article_id, article_title, article_abstract, article_post_time FROM BlogPost";
+        String hql = "SELECT article_id, article_title, article_abstract, article_post_time FROM BlogPost " +
+                "ORDER BY article_post_time DESC";
         Query query = currSession.createQuery(hql);
         query.setFirstResult(page * 3);
         query.setMaxResults(3);

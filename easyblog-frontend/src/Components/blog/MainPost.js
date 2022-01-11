@@ -36,7 +36,7 @@ export default function MainPost(props) {
     return (
         <Container key={'post-' + articleId}>
             <Typography component={"div"} variant={"h6"} gutterBottom>
-                <RouterLink  to={'/post/' + articleId} className={classes.link}>
+                <RouterLink  to={`/post/${articleId}`} className={classes.link}>
                     {title}
                 </RouterLink>
             </Typography>
