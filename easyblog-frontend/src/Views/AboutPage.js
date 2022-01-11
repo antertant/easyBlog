@@ -1,17 +1,55 @@
-import {Container, CssBaseline} from "@mui/material";
-import {createTheme} from "@mui/material/styles";
-import {ThemeProvider} from "@mui/styles";
-import Markdown from "markdown-to-jsx";
-import Box from "@mui/material/Box";
+import {Avatar, CircularProgress, Container, CssBaseline} from "@mui/material";
 import aboutMe from "../tempResources/aboutMe.md";
-
-const md = aboutMe;
+import {useState} from "react";
+import ReactMarkdown from "markdown-to-jsx";
+import avatar from "../tempResources/avatar.jpg"
+import * as React from "react"
+import Box from "@mui/material/Box";
 
 export default function AboutPage() {
 
+    const [about, setAbout] = useState({content: ""});
+    const [firstLoad, setFirstLoad] = useState(false);
+    let isLoading = true;
+
+    async function fetchAbout() {
+        let response = await fetch("/api/aboutMe");
+        let content = await response.json();
+        setAbout(content)
+    }
+
+    if (about.content.length > 0)  isLoading = false;
+
+    if (!firstLoad) {
+        fetchAbout();
+        setFirstLoad(true);
+    }
+
     return (
-        <Box mt={6} mx={5}>
-            <Markdown children={md} options={{ forceBlock: true }} />
-        </Box>
+        <React.Fragment>
+            {isLoading ? (
+                <CircularProgress
+                    sx={{
+                        position: 'absolute',
+                        top: '45%',
+                        left: '45%',
+                        opacity: 0.7,
+                    }}
+                />
+            ) : (
+                <Container maxWidth={'xl'} sx={{mt: '2em'}}>
+                    <Avatar
+                        alt={"Haocheng Wu"}
+                        src={avatar}
+                        sx={{ width: 192, height: 192}}
+                    />
+                    <Box maxWidth={'md'}>
+                        <ReactMarkdown>
+                            {about.content}
+                        </ReactMarkdown>
+                    </Box>
+                </Container>
+            )}
+        </React.Fragment>
     );
 }

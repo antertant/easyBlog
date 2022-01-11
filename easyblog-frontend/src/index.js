@@ -7,10 +7,10 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Home from "./Views/Home";
 import AboutPage from "./Views/AboutPage";
-import EducationPage from "./Views/EducationPage";
 import ExperiencePage from "./Views/ExperiencePage";
 import ProjectPage from "./Views/ProjectPage";
 import Post from "./Components/blog/Post";
+import ResumePage from "./Views/ResumePage";
 
 ReactDOM.render(
     // <App/>,
@@ -20,9 +20,9 @@ ReactDOM.render(
                   <Route index element={<Home/>}/>
                   <Route path="post/:id" element={<Post/>}/>
                   <Route path="about" element={<AboutPage/>}/>
-                  <Route path="education" element={<EducationPage/>}/>
                   <Route path="experience" element={<ExperiencePage/>}/>
                   <Route path="project" element={<ProjectPage/>}/>
+                  <Route path="resume" element={<ResumePage/>}/>
               </Route>
           </Routes>
       </Router>,

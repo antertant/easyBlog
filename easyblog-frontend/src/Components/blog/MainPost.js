@@ -34,7 +34,7 @@ export default function MainPost(props) {
     const postDate = new Date(date);
 
     return (
-        <Container key={'post-' + articleId}>
+        <Container>
             <Typography component={"div"} variant={"h6"} gutterBottom>
                 <RouterLink  to={`/post/${articleId}`} className={classes.link}>
                     {title}
@@ -59,7 +59,7 @@ export default function MainPost(props) {
 }
 
 MainPost.propTypes = {
-    articleId: PropTypes.string.isRequired,
+    articleId: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     abstract: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,

@@ -2,6 +2,7 @@ import {useParams} from "react-router-dom";
 import {useState} from "react";
 import Markdown from "markdown-to-jsx";
 import {CircularProgress, Container} from "@mui/material";
+import ReactMarkdown from "markdown-to-jsx";
 
 export default function Post() {
     const urlId = useParams();
@@ -38,14 +39,15 @@ export default function Post() {
                 <CircularProgress
                     sx={{
                         position: 'absolute',
-                        top: '10%',
-                        left: '50%'
+                        top: '45%',
+                        left: '45%',
+                        opacity: 0.7,
                     }}
                 />
             ) : (
-                <Markdown>
+                <ReactMarkdown>
                     {post.articleContent}
-                </Markdown>
+                </ReactMarkdown>
             )}
         </Container>
     );

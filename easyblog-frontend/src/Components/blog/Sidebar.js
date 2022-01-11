@@ -5,6 +5,8 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import {Link as RouterLink} from 'react-router-dom';
+import ReactMarkdown from "markdown-to-jsx";
 
 function Sidebar(props) {
     const { archives, description, social, title } = props;
@@ -12,19 +14,32 @@ function Sidebar(props) {
     return (
         <Grid item xs={12} md={4}>
             <Paper elevation={0} sx={{ p: 2, bgcolor: 'grey.200' }}>
-                <Typography variant="h6" gutterBottom>
+                <Typography
+                    component={RouterLink}
+                    to={'/about'}
+                    sx={{
+                        color: '#000000',
+                        fontFamily: 'Roboto',
+                        fontWeight: 500,
+                        textDecoration: 'none',
+                    }}
+                    variant="h6"
+                    gutterBottom
+                >
                     {title}
                 </Typography>
-                <Typography>{description}</Typography>
+                <ReactMarkdown>
+                    {description}
+                </ReactMarkdown>
             </Paper>
-            <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-                Archives
-            </Typography>
-            {archives.map((archive) => (
-                <Link display="block" variant="body1" href={archive.url} key={archive.title}>
-                    {archive.title}
-                </Link>
-            ))}
+            {/*<Typography variant="h6" gutterBottom sx={{ mt: 3 }}>*/}
+            {/*    Archives*/}
+            {/*</Typography>*/}
+            {/*{archives.map((archive) => (*/}
+            {/*    <Link display="block" variant="body1" href={archive.url} key={archive.title}>*/}
+            {/*        {archive.title}*/}
+            {/*    </Link>*/}
+            {/*))}*/}
 
             <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
                 Social
@@ -33,7 +48,7 @@ function Sidebar(props) {
                 <Link
                     display="block"
                     variant="body1"
-                    href="#"
+                    href={network.url}
                     key={network.name}
                     sx={{ mb: 0.5 }}
                 >

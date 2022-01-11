@@ -33,14 +33,16 @@ function Main() {
                 '& .markdown': {
                     py: 3,
                 },
+                mb: '2em'
             }}
         >
             {isLoading ? (
                 <CircularProgress
                     sx={{
                         position: 'absolute',
-                        top: '10%',
-                        left: '30%'
+                        top: '45%',
+                        left: '45%',
+                        opacity: 0.7,
                     }}
                 />
             ) : (
@@ -49,6 +51,7 @@ function Main() {
                                   abstract={abstract.articleAbstract}
                                   articleId={abstract.id}
                                   date={abstract.articlePostTime}
+                                  key={`mainPost-${abstract.id}`}
                         />
                     ))
             )}

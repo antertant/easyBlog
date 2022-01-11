@@ -11,9 +11,9 @@ import {Tab, Box} from "@mui/material";
 const sections = [
     { title: 'Home', url: '/'},
     { title: 'About', url: '/about'},
-    { title: 'Education', url: '/education'},
     { title: 'Experience', url: '/experience'},
     { title: 'Projects', url: '/project'},
+    { title: 'Resume', url: '/resume'},
 ];
 
 const TitleLink = styled(RouterLink)({
@@ -45,7 +45,7 @@ function useRouteMatch(patterns) {
 
 function Header() {
     const routeMatch = useRouteMatch(
-        ['/', '/about', '/education', '/experience', '/project']
+        ['/', '/about', '/experience', '/project', '/resume']
     )
     const currentTab = routeMatch?.pattern?.path;
 
@@ -73,14 +73,15 @@ function Header() {
             <Divider light/>
             <Container maxWidth={"xl"}>
                 <Toolbar
-                    maxWidth={"xl"}
+                    maxWidth="xl"
                     component="nav"
                     variant="dense"
                     sx={{ justifyContent: 'flex-start', overflowX: 'auto' }}
                 >
                     <Tabs
                         value={currentTab}
-                        aria-label={"styled tabs"}
+                        variant={"scrollable"}
+                        aria-label={"scrollable auto styled tabs"}
                         textColor={"primary"}
                         indicatorColor={"primary"}
                     >
@@ -90,6 +91,7 @@ function Header() {
                                 component={RouterLink}
                                 to={section.url}
                                 value={section.url}
+                                key={section.title}
                             >
                                 {section.title}
                             </Tab>
