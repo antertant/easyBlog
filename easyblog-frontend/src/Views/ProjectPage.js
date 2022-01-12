@@ -15,6 +15,8 @@ const projects = [
         at sagittis nisi. Vivamus id pellentesque lectus. Aliquam erat volutpat. Curabitur 
         eros justo, tristique ac leo eu, ullamcorper tempus risus. Integer varius ex risus, 
         id sodales lacus efficitur quis.`,
+        postUrl: "#",
+        gitUrl: "#",
     },
     {
         image: pixClockImg,
@@ -26,6 +28,8 @@ const projects = [
         at sagittis nisi. Vivamus id pellentesque lectus. Aliquam erat volutpat. Curabitur 
         eros justo, tristique ac leo eu, ullamcorper tempus risus. Integer varius ex risus, 
         id sodales lacus efficitur quis.`,
+        postUrl: "#",
+        gitUrl: "https://github.com/antertant/PIXCLOCK-ASM-DOS",
     },
     {
         image: searchImg,
@@ -37,6 +41,8 @@ const projects = [
         at sagittis nisi. Vivamus id pellentesque lectus. Aliquam erat volutpat. Curabitur 
         eros justo, tristique ac leo eu, ullamcorper tempus risus. Integer varius ex risus, 
         id sodales lacus efficitur quis.`,
+        postUrl: "#",
+        gitUrl: "https://github.com/antertant/LightSearch25",
     }
 ]
 
@@ -49,6 +55,8 @@ export default function ProjectPage() {
                         image={project.image}
                         title={project.title}
                         description={project.description}
+                        postUrl={project.postUrl}
+                        gitUrl={project.gitUrl}
                     />
                 </Grid>
             ))}

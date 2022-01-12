@@ -11,14 +11,14 @@ export default function App() {
     const theme = createTheme({
         palette: {
             type: 'light',
-                primary: {
+            primary: {
                 main: '#173243',
             },
             secondary: {
                 main: '#907154',
             },
             info: {
-                main: '#2196f3',
+                main: '#307086',
             },
             error: {
                 main: '#b0788c',
