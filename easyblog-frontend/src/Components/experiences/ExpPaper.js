@@ -26,7 +26,7 @@ export default function ExpPaper(props) {
     return (
         <Paper elevation={3}>
             <Card variant={"outlined"} className={classes.logo}>
-                <a href={"https://github.com/pigment/fake-logos"}>
+                <a href={"https://github.com/pigment/fake-logos"} target={'_blank'}>
                     <CardMedia component={"img"} src={instLogo}/>
                 </a>
             </Card>

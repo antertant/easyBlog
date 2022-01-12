@@ -1,8 +1,8 @@
 import {useParams} from "react-router-dom";
 import {useState} from "react";
-import Markdown from "markdown-to-jsx";
+import Markdown from "../common/Markdown";
 import {CircularProgress, Container} from "@mui/material";
-import ReactMarkdown from "markdown-to-jsx";
+import Box from "@mui/material/Box";
 
 export default function Post() {
     const urlId = useParams();
@@ -34,7 +34,7 @@ export default function Post() {
     }
 
     return (
-        <Container maxWidth={"md"}>
+        <Container maxWidth={"xl"} sx={{mt: '2em', md: '4em', ml: '1em'}}>
             {isLoading ? (
                 <CircularProgress
                     sx={{
@@ -45,9 +45,11 @@ export default function Post() {
                     }}
                 />
             ) : (
-                <ReactMarkdown>
-                    {post.articleContent}
-                </ReactMarkdown>
+                <Box maxWidth={'md'}>
+                    <Markdown>
+                        {post.articleContent}
+                    </Markdown>
+                </Box>
             )}
         </Container>
     );

@@ -8,6 +8,21 @@ function MarkdownListItem(props) {
     return <Box component="li" sx={{ mt: 1, typography: 'body1' }} {...props} />;
 }
 
+function MarkDownLink(props) {
+    return <Link
+        {...props}
+        target={'_blank'}
+        sx={{
+            color: '#3874ac',
+            fontWeight: 500,
+            textDecoration: 'none',
+            fontFamily: 'Roboto',
+            "&:hover": {
+                color: '#38ac4b',}
+        }}
+    />;
+}
+
 const options = {
     overrides: {
         h1: {
@@ -38,7 +53,7 @@ const options = {
             component: Typography,
             props: { paragraph: true },
         },
-        a: { component: Link },
+        a: { component: MarkDownLink },
         li: {
             component: MarkdownListItem,
         },

@@ -6,7 +6,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import {Link as RouterLink} from 'react-router-dom';
-import ReactMarkdown from "markdown-to-jsx";
+import Markdown from "../common/Markdown";
 
 function Sidebar(props) {
     const { archives, description, social, title } = props;
@@ -28,9 +28,9 @@ function Sidebar(props) {
                 >
                     {title}
                 </Typography>
-                <ReactMarkdown>
+                <Markdown>
                     {description}
-                </ReactMarkdown>
+                </Markdown>
             </Paper>
             {/*<Typography variant="h6" gutterBottom sx={{ mt: 3 }}>*/}
             {/*    Archives*/}
@@ -49,6 +49,7 @@ function Sidebar(props) {
                     display="block"
                     variant="body1"
                     href={network.url}
+                    target={'_blank'}
                     key={network.name}
                     sx={{ mb: 0.5 }}
                 >

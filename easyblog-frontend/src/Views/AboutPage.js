@@ -1,7 +1,6 @@
-import {Avatar, CircularProgress, Container, CssBaseline} from "@mui/material";
-import aboutMe from "../tempResources/aboutMe.md";
+import {Avatar, CircularProgress, Container} from "@mui/material";
 import {useState} from "react";
-import ReactMarkdown from "markdown-to-jsx";
+import Markdown from "../Components/common/Markdown";
 import avatar from "../tempResources/avatar.jpg"
 import * as React from "react"
 import Box from "@mui/material/Box";
@@ -37,16 +36,16 @@ export default function AboutPage() {
                     }}
                 />
             ) : (
-                <Container maxWidth={'xl'} sx={{mt: '2em'}}>
+                <Container maxWidth={'xl'} sx={{mt: '2em', ml: '1em'}}>
                     <Avatar
                         alt={"Haocheng Wu"}
                         src={avatar}
                         sx={{ width: 192, height: 192}}
                     />
-                    <Box maxWidth={'md'}>
-                        <ReactMarkdown>
+                    <Box maxWidth={'md'} sx={{mt: '2em', md: '4em'}}>
+                        <Markdown>
                             {about.content}
-                        </ReactMarkdown>
+                        </Markdown>
                     </Box>
                 </Container>
             )}

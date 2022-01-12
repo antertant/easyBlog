@@ -1,7 +1,7 @@
 export default function ResumePage() {
     return (
         <div>
-            resume
+            Link your own resume on this page.
         </div>
     )
 }
