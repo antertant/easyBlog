@@ -3,9 +3,9 @@ import Paper from "@mui/material/Paper";
 import Divider from "@mui/material/Divider";
 import {Container} from "@mui/material";
 import ExpPaper from "../Components/experiences/ExpPaper";
-import spaceCube from "../tempResources/space-cube.png"
-import crofts from "../tempResources/crofts-accountants.png";
-import banana from "../tempResources/fast-banana.png";
+import spaceCube from "../static/space-cube.png"
+import crofts from "../static/crofts-accountants.png";
+import banana from "../static/fast-banana.png";
 
 const exps = [
     {

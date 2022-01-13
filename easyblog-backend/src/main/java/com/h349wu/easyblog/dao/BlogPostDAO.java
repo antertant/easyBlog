@@ -19,7 +19,4 @@ public interface BlogPostDAO {
     void add(BlogPost post);
 
     void delete(int id);
-
-    void delete(String article_title);
-
 }

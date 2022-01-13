@@ -1,7 +1,7 @@
 import {Avatar, CircularProgress, Container} from "@mui/material";
 import {useState} from "react";
 import Markdown from "../Components/common/Markdown";
-import avatar from "../tempResources/avatar.jpg"
+import avatar from "../static/avatar.jpg"
 import * as React from "react"
 import Box from "@mui/material/Box";
 

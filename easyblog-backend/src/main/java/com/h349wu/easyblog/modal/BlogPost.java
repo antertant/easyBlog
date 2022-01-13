@@ -8,19 +8,19 @@ import java.sql.Date;
 public class BlogPost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
+    @Column(nullable = false)
     private Integer article_id;
 
-    @Column
+    @Column(nullable = false)
     private String article_title;
 
-    @Column
+    @Column(nullable = false)
     private String article_abstract;
 
-    @Column
+    @Column(nullable = false)
     private String article_content;
 
-    @Column
+    @Column(nullable = false)
     private Date article_post_time;
 
     public Integer getId() {

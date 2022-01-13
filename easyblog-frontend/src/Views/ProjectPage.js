@@ -1,6 +1,6 @@
-import divergenceImg from "../tempResources/divergence.jpg";
-import pixClockImg from "../tempResources/pixClock.png";
-import searchImg from "../tempResources/searchEngine.gif";
+import divergenceImg from "../static/divergence.jpg";
+import pixClockImg from "../static/pixClock.png";
+import searchImg from "../static/searchEngine.gif";
 import PrjCard from "../Components/projects/PrjCard";
 import Grid from "@mui/material/Grid";
 
@@ -15,6 +15,7 @@ const projects = [
         at sagittis nisi. Vivamus id pellentesque lectus. Aliquam erat volutpat. Curabitur 
         eros justo, tristique ac leo eu, ullamcorper tempus risus. Integer varius ex risus, 
         id sodales lacus efficitur quis.`,
+        tags: ['Electrics', 'Embedding System'],
         postUrl: "#",
         gitUrl: "#",
     },
@@ -28,6 +29,7 @@ const projects = [
         at sagittis nisi. Vivamus id pellentesque lectus. Aliquam erat volutpat. Curabitur 
         eros justo, tristique ac leo eu, ullamcorper tempus risus. Integer varius ex risus, 
         id sodales lacus efficitur quis.`,
+        tags: ['Assembly', 'MS-DOS'],
         postUrl: "#",
         gitUrl: "https://github.com/antertant/PIXCLOCK-ASM-DOS",
     },
@@ -41,6 +43,7 @@ const projects = [
         at sagittis nisi. Vivamus id pellentesque lectus. Aliquam erat volutpat. Curabitur 
         eros justo, tristique ac leo eu, ullamcorper tempus risus. Integer varius ex risus, 
         id sodales lacus efficitur quis.`,
+        tags: ['Java', 'Information Retrieval', 'File System'],
         postUrl: "#",
         gitUrl: "https://github.com/antertant/LightSearch25",
     }
@@ -55,6 +58,7 @@ export default function ProjectPage() {
                         image={project.image}
                         title={project.title}
                         description={project.description}
+                        tags={project.tags}
                         postUrl={project.postUrl}
                         gitUrl={project.gitUrl}
                     />

@@ -89,12 +89,4 @@ public class BlogPostDAOImp implements BlogPostDAO{
         BlogPost post = currSession.get(BlogPost.class, id);
         currSession.delete(post);
     }
-
-    @Override
-    public void delete(String articleTitle) {
-        Session currSession = entityManager.unwrap(Session.class);
-        String hql = "FROM BlogPost WHERE article_title=" + articleTitle;
-        Query<BlogPost> post = currSession.createQuery(hql, BlogPost.class);
-        currSession.delete(post.getResultList().get(0));
-    }
 }

@@ -47,10 +47,4 @@ public class BlogPostController {
         return "Post {" + id + "} deleted";
     }
 
-    @DeleteMapping("/delete/{title}")
-    public String delete(@PathVariable String title) {
-        blogPostService.delete(title);
-        return "Post [" + title + "] deleted";
-    }
-
 }

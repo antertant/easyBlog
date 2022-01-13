@@ -6,11 +6,6 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import Main from '../Components/blog/Main';
 import Sidebar from '../Components/blog/Sidebar';
-import post1 from '../tempResources/blog-post.1.md';
-import post2 from '../tempResources/blog-post.2.md';
-import post3 from '../tempResources/blog-post.3.md';
-
-const posts = [post1, post2, post3];
 
 const sidebar = {
     title: 'About',
@@ -44,7 +39,7 @@ export default function Home() {
     return (
         <main>
             <Grid container spacing={1} sx={{ mt: 2 }}>
-                <Main title="From the firehose" posts={posts} />
+                <Main title="From the firehose" />
                 <Sidebar
                     title={sidebar.title}
                     description={sidebar.description}

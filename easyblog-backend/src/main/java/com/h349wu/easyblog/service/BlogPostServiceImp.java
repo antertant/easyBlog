@@ -51,10 +51,4 @@ public class BlogPostServiceImp implements BlogPostService{
     public void delete(int id) {
         blogPostDAO.delete(id);
     }
-
-    @Transactional
-    @Override
-    public void delete(String articleTitle) {
-        blogPostDAO.delete(articleTitle);
-    }
 }

@@ -20,6 +20,4 @@ public interface BlogPostService {
 
     void delete(int id);
 
-    void delete(String articleTitle);
-
 }
