@@ -3,6 +3,7 @@ import CardMedia from "@mui/material/CardMedia";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ArticleIcon from "@mui/icons-material/Article";
 import {useState} from "react";
+import * as React from "react";
 
 export default function PrjCard(props) {
     const {image, title, description, postUrl, gitUrl} = props;
@@ -51,9 +52,14 @@ export default function PrjCard(props) {
                 </Button>
                 <Button
                     disabled={postButtonDisable}
+                    href={postUrl}
+                    target={'_blank'}
                     variant={"contained"}
                     startIcon={<ArticleIcon/>}
                     color={"primary"}
+                    sx={{
+                        mx: '0.5em'
+                    }}
                 >
                     Article
                 </Button>
