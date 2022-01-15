@@ -42,11 +42,11 @@ on this template. Besides, you can also find some snapshot of the template in th
 ## Backend
 Before run the backend server, build the project through maven wrapper:
 
-        easyblog-backend > ./mvnw clean pakacge
+    easyblog-backend > ./mvnw clean pakacge
 
 Then, start the server through command below:
 
-        easyblog-backend > ./mvnw spring-boot:run
+    easyblog-backend > ./mvnw spring-boot:run
 
 Make sure there is a database called 'blogdb' in your local MySQL server and 
 remember to replace your own MySQL URL, username, and password in 'easyblog-backend/src/main/resources/application.properties'
@@ -55,11 +55,11 @@ remember to replace your own MySQL URL, username, and password in 'easyblog-back
 ## Frontend
 To start the frontend server, build the project through Node.js:
 
-        easyblog-frontend > npm install
+    easyblog-frontend > npm install
 
 When the build is completed, run command below to start the server:
 
-        eastblog-frontend > npm start
+    eastblog-frontend > npm start
 
 # Snapshots
 ## Home Page
