@@ -23,7 +23,7 @@ public class AboutMeController {
     }
 
     String basePath = new File("").getAbsolutePath();
-    String filePath = basePath.concat("/src/main/resources/static/aboutMe.md");
+    String filePath = basePath.concat("/classes/static/aboutMe.md");
 
     @GetMapping
     public AboutMe get() {

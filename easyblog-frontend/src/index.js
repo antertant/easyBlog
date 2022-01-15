@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import "@fontsource/roboto";
@@ -11,6 +11,7 @@ import ExperiencePage from "./Views/ExperiencePage";
 import ProjectPage from "./Views/ProjectPage";
 import Post from "./Components/blog/Post";
 import ResumePage from "./Views/ResumePage";
+import NotFound from "./Views/NotFound";
 
 ReactDOM.render(
     // <App/>,
@@ -24,6 +25,7 @@ ReactDOM.render(
                   <Route path="project" element={<ProjectPage/>}/>
                   <Route path="resume" element={<ResumePage/>}/>
               </Route>
+              <Route path={'*'} exact element={<NotFound/>}/>
           </Routes>
       </Router>,
   document.getElementById('root')
