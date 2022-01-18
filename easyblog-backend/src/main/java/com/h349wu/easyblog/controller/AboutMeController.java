@@ -22,7 +22,8 @@ public class AboutMeController {
         }
     }
 
-    String filePath = "D:\\Blog\\easyBlog\\easyblog-backend\\src\\main\\java\\com\\h349wu\\easyblog\\aboutMe.md";
+    String basePath = new File("").getAbsolutePath();
+    String filePath = basePath.concat("/classes/static/aboutMe.md");
 
     @GetMapping
     public AboutMe get() {
