@@ -6,16 +6,12 @@ import {
     CardContent,
     Chip,
     Container,
-    Divider,
-    ListItem,
-    Stack,
     Typography
 } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ArticleIcon from "@mui/icons-material/Article";
 import {useState} from "react";
-import {List} from "@mui/icons-material";
 import * as React from "react";
 
 export default function PrjCard(props) {
