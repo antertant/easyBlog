@@ -8,7 +8,7 @@ provide a easy to use blog template for someone to establish their first persona
 I just start this project a couple days ago and I'm new to React, thus I need some time to be familiar with the framework such that 
 I can add more functions on this template. You can see a TODO list in the following section which indicates my recent plans for it.
 
-If you want to check how it would look like if using this template to establish a real blog, you can visit my own page: [haocheng-wu.com](https://haocheng-wu.com). It's fully based 
+If you want to check how it would look like if using this template to establish a real blog, you can visit my own page: [haocheng-wu.com](https://www.haocheng-wu.com). It's fully based 
 on this template. Besides, you can also find some snapshot of the template in the following section.
 
 # Functionalities
