@@ -9,6 +9,7 @@ import Sidebar from '../Components/blog/Sidebar';
 import post1 from '../tempResources/blog-post.1.md';
 import post2 from '../tempResources/blog-post.2.md';
 import post3 from '../tempResources/blog-post.3.md';
+import MainFeaturedPost from "../Components/blog/MainFeaturedPost";
 
 const posts = [post1, post2, post3];
 

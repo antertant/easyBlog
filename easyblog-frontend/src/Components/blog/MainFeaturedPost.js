@@ -5,25 +5,27 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
+import divergenceImg from "../../tempResources/divergence.jpg";
 
-function MainFeaturedPost(props) {
-    const { post } = props;
+function MainFeaturedPost() {
 
     return (
         <Paper
             sx={{
+                display: {xs: 'none', sm: 'block'},
                 position: 'relative',
                 backgroundColor: 'grey.800',
                 color: '#fff',
                 mb: 4,
+                mx: 2,
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
-                backgroundImage: `url(${post.image})`,
+                backgroundImage: `url(${divergenceImg})`,
             }}
         >
             {/* Increase the priority of the hero background image */}
-            {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
+            {<img style={{ display: 'none' }} src={divergenceImg} alt="Img" />}
             <Box
                 sx={{
                     position: 'absolute',
@@ -44,29 +46,19 @@ function MainFeaturedPost(props) {
                         }}
                     >
                         <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-                            {post.title}
+                            Cool Tech
                         </Typography>
                         <Typography variant="h5" color="inherit" paragraph>
-                            {post.description}
+                            Find your favorite here.
                         </Typography>
-                        <Link variant="subtitle1" href="#">
-                            {post.linkText}
-                        </Link>
+                        {/*<Link variant="subtitle1" href="#">*/}
+                        {/*    LinkText*/}
+                        {/*</Link>*/}
                     </Box>
                 </Grid>
             </Grid>
         </Paper>
     );
 }
-
-MainFeaturedPost.propTypes = {
-    post: PropTypes.shape({
-        description: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-        imageText: PropTypes.string.isRequired,
-        linkText: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-    }).isRequired,
-};
 
 export default MainFeaturedPost;

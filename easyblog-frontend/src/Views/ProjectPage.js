@@ -15,6 +15,7 @@ const projects = [
         at sagittis nisi. Vivamus id pellentesque lectus. Aliquam erat volutpat. Curabitur 
         eros justo, tristique ac leo eu, ullamcorper tempus risus. Integer varius ex risus, 
         id sodales lacus efficitur quis.`,
+        tags: ['Electrics', 'Embedding System', 'MSP430'],
         postUrl: "#",
         gitUrl: "#",
     },
@@ -28,6 +29,7 @@ const projects = [
         at sagittis nisi. Vivamus id pellentesque lectus. Aliquam erat volutpat. Curabitur 
         eros justo, tristique ac leo eu, ullamcorper tempus risus. Integer varius ex risus, 
         id sodales lacus efficitur quis.`,
+        tags: ['Assembly', 'MS-DOS'],
         postUrl: "#",
         gitUrl: "https://github.com/antertant/PIXCLOCK-ASM-DOS",
     },
@@ -41,6 +43,7 @@ const projects = [
         at sagittis nisi. Vivamus id pellentesque lectus. Aliquam erat volutpat. Curabitur 
         eros justo, tristique ac leo eu, ullamcorper tempus risus. Integer varius ex risus, 
         id sodales lacus efficitur quis.`,
+        tags: ['Java', 'Information Retrieval', 'File System'],
         postUrl: "#",
         gitUrl: "https://github.com/antertant/LightSearch25",
     }
@@ -57,6 +60,7 @@ export default function ProjectPage() {
                         description={project.description}
                         postUrl={project.postUrl}
                         gitUrl={project.gitUrl}
+                        tags={project.tags}
                     />
                 </Grid>
             ))}

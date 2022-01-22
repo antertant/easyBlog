@@ -12,6 +12,8 @@ import ProjectPage from "./Views/ProjectPage";
 import Post from "./Components/blog/Post";
 import ResumePage from "./Views/ResumePage";
 import NotFound from "./Views/NotFound";
+import AboutMe from "./Components/about/AboutMe";
+import Education from "./Components/about/education/Education";
 
 ReactDOM.render(
     // <App/>,

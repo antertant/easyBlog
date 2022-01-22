@@ -1,0 +1,3 @@
+I'm [Haocheng Wu](https://github.com/antertant/), I'm currently graduated from [University of Waterloo](https://uwaterloo.ca). I just completed my Master's degree in Electrical and Computer Engineering in December 2021. 
+
+This is a blog template based on Spring Boot and React. I build it because I want to show some funny projects to others. I realized that this template may be helpful for people who want to build such a website just like me, that is the reason why I shared it on Github, hope it can help you build your own page easier.

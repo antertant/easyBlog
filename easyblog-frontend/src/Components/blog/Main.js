@@ -3,7 +3,8 @@ import Grid from '@mui/material/Grid';
 import {useState} from "react";
 
 import MainPost from "./MainPost";
-import {CircularProgress} from "@mui/material";
+import {CircularProgress, Container} from "@mui/material";
+import MainFeaturedPost from "./MainFeaturedPost";
 
 function Main() {
 
@@ -36,6 +37,10 @@ function Main() {
                 mb: '2em'
             }}
         >
+            {!isLoading ? (
+                <MainFeaturedPost/>
+            ) : (<div/>)}
+
             {isLoading ? (
                 <CircularProgress
                     sx={{
