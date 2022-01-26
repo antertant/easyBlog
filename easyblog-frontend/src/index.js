@@ -27,6 +27,7 @@ ReactDOM.render(
                   <Route path="project" element={<ProjectPage/>}/>
                   <Route path="resume" element={<ResumePage/>}/>
               </Route>
+              <Route path={"/user"} element={<UserLogin/>} />
               <Route path={'*'} exact element={<NotFound/>}/>
           </Routes>
       </Router>,
