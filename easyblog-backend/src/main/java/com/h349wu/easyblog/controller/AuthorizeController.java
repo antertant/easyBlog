@@ -29,8 +29,8 @@ public class AuthorizeController {
         accessTokenDTO.setRedirect_uri("http://localhost:8080/api/callback");
         String accessToken = gitHubProvider.getAccessToken(accessTokenDTO);
         User user = gitHubProvider.getUser(accessToken);
-        if (user.getId().equals(25704124)) user.setAuthority(1);
+        if (user.getId().equals(9999999)) user.setAuthority(1);
         userService.add(user);
-        return "redirect:http://localhost:3000/user?user_id=" + user.getId();
+        return "redirect:/user?user_id=" + user.getId();
     }
 }

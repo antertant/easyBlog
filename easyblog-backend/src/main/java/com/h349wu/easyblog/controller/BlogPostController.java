@@ -1,6 +1,7 @@
 package com.h349wu.easyblog.controller;
 
 
+import com.alibaba.fastjson.JSON;
 import com.h349wu.easyblog.modal.BlogPost;
 import com.h349wu.easyblog.service.BlogPostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,16 +31,24 @@ public class BlogPostController {
     }
 
     @PostMapping("/updatePost")
-    public BlogPost update(@RequestBody BlogPost post) {
-        blogPostService.update(post);
-        return post;
+    public BlogPost update(@RequestBody String post) {
+        BlogPost blogPost = JSON.parseObject(post, BlogPost.class);
+        blogPostService.update(blogPost);
+        return blogPost;
     }
 
     @PostMapping("/add")
-    public BlogPost add(@RequestBody BlogPost post) {
-        blogPostService.add(post);
-        return post;
+    public BlogPost add(@RequestBody String post) {
+        BlogPost blogPost = JSON.parseObject(post, BlogPost.class);
+        blogPostService.add(blogPost);
+        return blogPost;
     }
+//    @PostMapping("/add")
+//    public BlogPost add(@RequestParam("article")Object post) {
+//        BlogPost blogPost = JSON.parseObject(post, BlogPost.class);
+//        blogPostService.add(blogPost);
+//        return blogPost;
+//    }
 
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable int id) {
@@ -47,10 +56,10 @@ public class BlogPostController {
         return "Post {" + id + "} deleted";
     }
 
-    @DeleteMapping("/delete/{title}")
-    public String delete(@PathVariable String title) {
-        blogPostService.delete(title);
-        return "Post [" + title + "] deleted";
-    }
+//    @DeleteMapping("/delete/{title}")
+//    public String delete(@PathVariable String title) {
+//        blogPostService.delete(title);
+//        return "Post [" + title + "] deleted";
+//    }
 
 }

@@ -3,6 +3,7 @@ import ReactMarkdown from 'markdown-to-jsx';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
+import {Card, CardMedia} from "@mui/material";
 
 function MarkdownListItem(props) {
     return <Box component="li" sx={{ mt: 1, typography: 'body1' }} {...props} />;
@@ -57,6 +58,9 @@ const options = {
         li: {
             component: MarkdownListItem,
         },
+        img: {
+            props: {style: {height: '90%', width: '90%'}}
+        }
     },
 };
 

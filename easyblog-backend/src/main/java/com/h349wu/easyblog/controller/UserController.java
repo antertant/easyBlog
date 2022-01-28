@@ -23,11 +23,12 @@ public class UserController {
         return user;
     }
 
-    @PostMapping("/verifyAuth={id}")
+    @GetMapping("/verifyAuth={id}")
     public String verifyAuth(@PathVariable int id) {
         User user = userService.get(id);
-        if (user.getAuthority() == 1)
+        if (user.getAuthority() == 1) {
             return "true";
+        }
         return "false";
     }
 }

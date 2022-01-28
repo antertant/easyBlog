@@ -34,7 +34,7 @@ export default function Post() {
     }
 
     return (
-        <Container maxWidth={"xl"} sx={{mt: '2em', md: '4em', ml: '1em'}}>
+        <Container maxWidth={"xl"} sx={{mt: '2em', mb: '4em'}}>
             {isLoading ? (
                 <CircularProgress
                     sx={{

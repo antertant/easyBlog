@@ -5,6 +5,7 @@ import {Link, Container, Typography} from "@mui/material";
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
+import Markdown from "../common/Markdown";
 
 const styles = makeStyles(theme => ({
     link: {
@@ -50,7 +51,14 @@ export default function MainPost(props) {
                 Post on: {postDate.toString()}
             </Typography>
             <Typography component={"div"} variant={"body1"} gutterBottom>
-                {abstract}
+                <Markdown>
+                    {abstract}
+                </Markdown>
+            </Typography>
+            <Typography sx={{textAlign: 'right'}} component={"div"} variant={"body1"} gutterBottom>
+                <RouterLink  to={`/post/${articleId}`} className={classes.link}>
+                    Read more...
+                </RouterLink>
             </Typography>
             <Divider light />
         </Container>

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import "@fontsource/roboto";
@@ -12,8 +12,12 @@ import ProjectPage from "./Views/ProjectPage";
 import Post from "./Components/blog/Post";
 import ResumePage from "./Views/ResumePage";
 import NotFound from "./Views/NotFound";
-import AboutMe from "./Components/about/AboutMe";
-import Education from "./Components/about/education/Education";
+import UserLogin from "./Views/UserLogin";
+import DashBoardPage from "./Views/DashBoardPage";
+import ChartPage from "./Components/dashboard/chart/ChartPage";
+import DashBoardArticle from "./Components/dashboard/articles/DashBoardArticle";
+import EditPage from "./Components/dashboard/edit/EditPage";
+import AddNewPage from "./Components/dashboard/edit/AddNewPage";
 
 ReactDOM.render(
     // <App/>,
@@ -28,6 +32,12 @@ ReactDOM.render(
                   <Route path="resume" element={<ResumePage/>}/>
               </Route>
               <Route path={"/user"} element={<UserLogin/>} />
+              <Route path={"/dashboard"} element={<DashBoardPage/>}>
+                  <Route index element={<ChartPage/>}/>
+                  <Route path={"articles"} element={<DashBoardArticle/>}/>
+                  <Route path={"edit"} element={<EditPage/>}/>
+                  <Route path={"addNewArticle"} element={<AddNewPage/>}/>
+              </Route>
               <Route path={'*'} exact element={<NotFound/>}/>
           </Routes>
       </Router>,

@@ -5,22 +5,24 @@ A blog template based on ***Spring Boot***, ***MySQL***, ***React***, and ***Mat
 This is a tech blog template based on ***Spring Boot***, ***MySQL***, ***React***, and ***Material-UI***. The purpose of this project is to 
 provide a easy to use blog template for someone to establish their first personal page.
 
-I just start this project a couple days ago and I'm new to React, thus I need some time to be familiar with the framework such that 
-I can add more functions on this template. You can see a TODO list in the following section which indicates my recent plans for it.
+I will continuously add more functions on this template. You can see a TODO list in the following section which indicates my recent plans for it.
 
-If you want to check how it would look like if using this template to establish a real blog, you can visit my own page: [haocheng-wu.com](https://www.haocheng-wu.com). It's fully based 
-on this template. Besides, you can also find some snapshot of the template in the following section.
+If you want to check how it looks like, you can visit my own page: [haocheng-wu.com](https://www.haocheng-wu.com). It's fully based 
+on this template.
 
 # Functionalities
+- [x] Github signin
 - [ ] Blog Articles
     - [x] Backend APIs (Articles information CRUD)
     - [x] Article List
       - [ ] Pagination
     - [ ] Article Tags
     - [ ] Article Search
-    - [ ] Markdown-based editor
     - [ ] Comment
-    - [ ] Article Manager (Need to manually add articles into database currently)
+- [x] Dashboard
+  - [x] Markdown-based editor 
+  - [x] Article Manager
+  - [ ] Statistics
 - [x] About Me Page
 - [x] Experience Page
 - [x] Project Page
@@ -38,6 +40,30 @@ on this template. Besides, you can also find some snapshot of the template in th
   - Material-UI 5
 
 # Instructions
+
+## Configuration
+
+### Github OAuth2 Configuration
+
+*TODO: Security Enhancement*
+
+This template uses Github OAuth2 API to implement the signin function. You need to configure it correctly such that you can sign in your own account and manage your website through the dashboard.
+
+Under
+
+    /easyblog-backend/src/main/java/com/h349wu/easyblog/controller/AuthorizeController.java
+
+, replace the client_id and client_secret with your own code, and replace redirect_uri to your own url. About how to get those information, see [Github OAuth2 Guide](https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps). Besides, replace "9999999" in line 32 with your own Github id number such that your account can get the authentication to access dashboard.
+
+### Image Storage Configuration
+
+You should correctly configure the image storage path for the image uploading function, otherwise the article editor won't work properly.
+
+In application.yml, set the server.tomcat.basedir as the path you want to store uploaded images. The files will save in 
+  
+    {basedir}\work\Tomcat\localhost\ROOT
+
+You should also change the **rootPath** variable in *ImgUtil.java* as the path above. Finally, create a file called **prefix** in the directory, and write a '0' in it.
 
 ## Build Frontend And Backend Together
 
@@ -70,13 +96,3 @@ commands below:
     eastblog-frontend > npm start
 
 The backend server is running at localhost:8080. The frontend client is running at localhost:3000.
-
-# Preview
-## Home Page
-![Home](./snapshots/home.png)
-## About Page
-![about](./snapshots/about.png)
-## Experience Page
-![experience](./snapshots/experience.png)
-## Project Page
-![project](./snapshots/project.png)
